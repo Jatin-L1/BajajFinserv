@@ -1,0 +1,32 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "dist/index.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/bfhl",
+            "methods": [
+                "POST"
+            ],
+            "dest": "dist/index.js"
+        },
+        {
+            "src": "/health",
+            "methods": [
+                "GET"
+            ],
+            "dest": "dist/index.js"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "dist/index.js"
+        }
+    ],
+    "env": {
+        "NODE_ENV": "production"
+    }
+}
